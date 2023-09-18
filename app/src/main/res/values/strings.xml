@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">W2-App</string>
+
+    <string name="find_user">Cari</string>
+    <string name="settings">Setting</string>
+    <string name="followers">%1$d followers</string>
+    <string name="following">%1$d following</string>
+    <string name="followers_tab">Followers</string>
+    <string name="following_tab">Following</string>
+    <string name="username">\@%1$s</string>
+    <string name="textview">TextView</string>
+    <string name="tv_error"></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
