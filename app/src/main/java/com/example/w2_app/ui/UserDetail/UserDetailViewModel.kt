@@ -1,17 +1,21 @@
-package com.example.w2_app.ui.view_model
+package com.example.w2_app.ui.UserDetail
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.w2_app.data.DetailUserResponse
-import com.example.w2_app.data.FollowingFollowerResponse
+import androidx.lifecycle.viewModelScope
+import com.example.w2_app.data.database.FavoriteUserEntity
+import com.example.w2_app.data.repository.UserRepository
+import com.example.w2_app.data.response.DetailUserResponse
+import com.example.w2_app.data.response.FollowingFollowerResponse
 import com.example.w2_app.retrofit.ApiConfig
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserDetailViewModel : ViewModel(){
+class UserDetailViewModel(private val userRepository: UserRepository) : ViewModel(){
     private val _users = MutableLiveData<DetailUserResponse>()
     val users: LiveData<DetailUserResponse> = _users
 
@@ -28,6 +32,16 @@ class UserDetailViewModel : ViewModel(){
         private const val TAG = "UserDetailViewModel"
     }
 
+    fun isFavorite(username: String)=
+        userRepository.isFavorite(username)
+
+    fun saveFavorite(favoriteUserEntity: FavoriteUserEntity){
+        viewModelScope.launch { userRepository.saveFavorite(favoriteUserEntity) }
+    }
+
+    fun deleteFavorite(favoriteUserEntity: FavoriteUserEntity){
+        viewModelScope.launch { userRepository.delete(favoriteUserEntity) }
+    }
     fun getUserDetail(username : String){
         _isLoading.value = true
         val client = ApiConfig.getApiService().getUserDetail(username)
@@ -47,7 +61,6 @@ class UserDetailViewModel : ViewModel(){
             override fun onFailure(call: Call<DetailUserResponse>, t: Throwable) {
                 _isLoading.value = true
                 Log.e(TAG, "onFailure: ${t.message.toString()}")            }
-
         })
     }
 
@@ -98,6 +111,5 @@ class UserDetailViewModel : ViewModel(){
 
         })
     }
-
 }
 

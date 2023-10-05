@@ -1,13 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-<!--    <style name="Base.Theme.W2App" parent="Theme.Material3.DayNight">-->
-<!--        &lt;!&ndash; Customize your light theme here. &ndash;&gt;-->
-<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_light_primary</item> &ndash;&gt;-->
-<!--    </style>-->
-
     <style name="Theme.W2App" parent="Base.Theme.W2App" />
 
-    <style name="Base.Theme.W2App" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.W2App" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
@@ -34,5 +28,9 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <item name="android:windowIsTranslucent">true</item>
+
     </style>
+
+    <style name="Base2.Theme.W2App" parent="Theme.Material3.DayNight" />
 </resources>

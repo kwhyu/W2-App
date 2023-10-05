@@ -1,5 +1,6 @@
 package com.example.w2_app.retrofit
 
+import com.example.w2_app.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -11,7 +12,7 @@ class ApiConfig {
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
                 val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "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")
+                    .addHeader("Authorization", BuildConfig.APP_KEY)
                     .build()
                 chain.proceed(requestHeaders)
             }

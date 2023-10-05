@@ -1,11 +1,11 @@
-package com.example.w2_app.ui.view_model
+package com.example.w2_app.ui.Main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.w2_app.data.GithubResponse
-import com.example.w2_app.data.User
+import com.example.w2_app.data.response.GithubResponse
+import com.example.w2_app.data.response.User
 import com.example.w2_app.retrofit.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback

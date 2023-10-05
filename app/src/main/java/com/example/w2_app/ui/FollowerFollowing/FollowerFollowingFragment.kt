@@ -1,4 +1,4 @@
-package com.example.w2_app.ui
+package com.example.w2_app.ui.FollowerFollowing
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.w2_app.data.FollowingFollowerResponse
+import com.example.w2_app.data.response.FollowingFollowerResponse
 import com.example.w2_app.databinding.FragmentFollowerBinding
-import com.example.w2_app.ui.view_model.UserDetailViewModel
+import com.example.w2_app.ui.UserDetail.UserDetailViewModel
+import com.example.w2_app.ui.adapter.FollowingFollowerAdapter
 
 
 class FollowerFollowingFragment : Fragment() {
@@ -20,6 +21,7 @@ class FollowerFollowingFragment : Fragment() {
     private var username: String? = null
     private var position: Int? = null
     private lateinit var errorMsg: String
+
 
     override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -42,7 +44,6 @@ class FollowerFollowingFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(requireActivity())
         FollowersBinding.rvFollowerfollowing.layoutManager = layoutManager
-
 
         if (position == 1) {
             userDetailViewModel.getFollower(username.toString())
@@ -76,6 +77,7 @@ class FollowerFollowingFragment : Fragment() {
                 }
             }
         }
+
     }
 
     private fun setFollowing(following: List<FollowingFollowerResponse>) {

@@ -1,4 +1,4 @@
-package com.example.w2_app.data
+package com.example.w2_app.data.response
 
 import com.google.gson.annotations.SerializedName
 

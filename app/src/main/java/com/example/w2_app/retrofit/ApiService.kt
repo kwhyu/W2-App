@@ -1,8 +1,8 @@
 package com.example.w2_app.retrofit
 
-import com.example.w2_app.data.DetailUserResponse
-import com.example.w2_app.data.FollowingFollowerResponse
-import com.example.w2_app.data.GithubResponse
+import com.example.w2_app.data.response.DetailUserResponse
+import com.example.w2_app.data.response.FollowingFollowerResponse
+import com.example.w2_app.data.response.GithubResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
